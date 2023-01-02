@@ -32,12 +32,12 @@ public final class ModScreens {
 	static void registerMenuScreens() {
 		registerMenuScreen(ModMenuTypes.DECOMPOSER, DecomposerScreen::new, DecomposerScreen.class);
 		registerMenuScreen(ModMenuTypes.BIO_LAB, BioLabScreen::new, BioLabScreen.class);
-		registerMenuScreen(ModMenuTypes.GLAND, GlandScreen::new, GlandScreen.class);
 		registerMenuScreen(ModMenuTypes.STORAGE_SAC, StorageSacScreen::new, StorageSacScreen.class);
-		registerMenuScreen(ModMenuTypes.GULGE, GulgeScreen::new, GulgeScreen.class);
 		registerMenuScreen(ModMenuTypes.FLESHKIN_CHEST, FleshkinChestScreen::new, FleshkinChestScreen.class);
 		registerMenuScreen(ModMenuTypes.DIGESTER, DigesterScreen::new, DigesterScreen.class);
 		registerMenuScreen(ModMenuTypes.BIO_FORGE, BioForgeScreen::new, BioForgeScreen.class);
+		registerMenuScreen(ModMenuTypes.GLAND, GlandScreen::new, GlandScreen.class);
+		registerMenuScreen(ModMenuTypes.GULGE, GulgeScreen::new, GulgeScreen.class);
 	}
 
 }
