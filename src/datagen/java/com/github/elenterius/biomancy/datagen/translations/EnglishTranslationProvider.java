@@ -11,12 +11,11 @@ import com.github.elenterius.biomancy.world.item.MaykerBannerPatternItem;
 import com.github.elenterius.biomancy.world.item.SerumItem;
 import com.github.elenterius.biomancy.world.item.state.LivingToolState;
 import com.github.elenterius.biomancy.world.serum.Serum;
-
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.HashCache;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.TagKey;
@@ -85,11 +84,11 @@ public class EnglishTranslationProvider extends LanguageProvider {
 	}
 
 	private void add(Component component, String translation) {
-		if (!(component instanceof MutableComponent translatableComponent)) {
-			throw new IllegalArgumentException("Provided component is not a translatable component");
+		if (!(component.getContents() instanceof TranslatableContents translatableContents)) {
+			throw new IllegalArgumentException("Provided component does not contain translatable contents");
 		}
 
-		add(translatableComponent, translation);
+		add(translatableContents.getKey(), translation);
 	}
 
 	private void addBannerPatternItem(RegistryObject<MaykerBannerPatternItem> itemSupplier, String name, String description) {
@@ -98,7 +97,7 @@ public class EnglishTranslationProvider extends LanguageProvider {
 		add(item.getDisplayName(), description);
 
 		TagKey<BannerPattern> bannerPattern = item.getBannerPattern();
-		ResourceLocation rl = new ResourceLocation(bannerPattern.toString());
+		ResourceLocation rl = bannerPattern.location();
 
 		for (DyeColor dyeColor : DyeColor.values()) {
 			add("block.%s.banner.%s.%s".formatted(rl.getNamespace(), rl.getPath(), dyeColor.getName()), StringUtils.capitalize(dyeColor.getName()) + " " + description);

@@ -187,7 +187,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:citadel-331936:4132623")
     datagenImplementation fg.deobf("curse.maven:alexs_mobs-426558:4159154")
 
-    implementation fg.deobf("com.github.Virtuoel:Pehkui:3.6.2-1.19.2-forge")
+    compileOnly fg.deobf("com.github.Virtuoel:Pehkui:3.6.2-1.19.2-forge")
 
     //TODO: Morph Mod Integration?
 //    implementation fg.deobf("curse.maven:identity-391390:3807264") // https://www.curseforge.com/minecraft/mc-mods/identity
